@@ -1,0 +1,12 @@
+const { ObjectId } = mongoose.Schema
+
+const productDetailsSchema = new Mongoose.Schema({
+product_id: {
+	type: ObjectId,
+	ref: 'Product',
+    },
+...size,
+...quantidade,
+...preco
+...rest
+});
