@@ -11,6 +11,8 @@ const authRoutes = require('./routes/auth')
 const userRoutes = require('./routes/user')
 const categoryRoutes = require('./routes/category')
 const productRoutes = require('./routes/product')
+const braintreeRoutes = require('./routes/braintree')
+const orderRoutes = require('./routes/order')
 
 // app
 const app = express()
@@ -37,6 +39,8 @@ app.use('/api/v1/', authRoutes)
 app.use('/api/v1/', userRoutes)
 app.use('/api/v1/', categoryRoutes)
 app.use('/api/v1/', productRoutes)
+app.use('/api/v1/', braintreeRoutes)
+app.use('/api/v1/', orderRoutes)
 
 const port = process.env.PORT || 8000
 

@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { signup } from "../../auth";
+import Layout from "../core/Layout";
+import { toast, ToastContainer } from "react-toastify";
 
 const Signup = () => {
   const [values, setValues] = useState({
@@ -42,6 +44,37 @@ const Signup = () => {
       }
     });
   };
+
+  const errorToast = () => (
+    <ToastContainer
+      position="top-center"
+      autoClose={5000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+    />
+  );
+
+  useEffect(() => {
+    if (error) {
+      toast.error(error, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+    console.log("error");
+    setValues({ ...values, error: false });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [error]);
 
   const signUpForm = () => (
     <>
@@ -102,13 +135,14 @@ const Signup = () => {
 
   const showError = () => (
     <>
-      <br />
+      {errorToast()}
+      {/* <br />
       <div
         className="alert alert-danger"
         style={{ display: error ? "" : "none" }}
       >
         {error}
-      </div>
+      </div> */}
     </>
   );
 
@@ -125,11 +159,11 @@ const Signup = () => {
   );
 
   return (
-    <>
+    <Layout>
       {showError()}
       {showSucces()}
       {signUpForm()}
-    </>
+    </Layout>
   );
 };
 

@@ -7,7 +7,12 @@ const {
   isAdmin,
 } = require('../controllers/authController')
 
-const { userById, read, update } = require('../controllers/userController')
+const {
+  userById,
+  read,
+  update,
+  purchaseHistory,
+} = require('../controllers/userController')
 
 router.get(
   '/secret/:userId',
@@ -23,8 +28,8 @@ router.get(
 
 router.get('/user/:userId', requireSignin, isAuth, read)
 router.put('/user/:userId', requireSignin, isAuth, update)
+router.get('/orders/by/user/:userId', requireSignin, isAuth, purchaseHistory)
 
-// method
 router.param('userId', userById)
 
 module.exports = router

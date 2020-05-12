@@ -1,0 +1,105 @@
+.product-img {
+  min-height: 200px;
+  img {
+    border-radius: 13px;
+  }
+  img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+  @media only screen and (min-width: 1024px) {
+    img {
+      min-height: 400px;
+    }
+  }
+}
+.miniature-img {
+  height: 120px;
+  width: 120px;
+  img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+}
+
+.logout-btn {
+  @media only screen and (min-width: 992px) {
+    position: absolute;
+    right: 0;
+  }
+}
+
+.text-minify {
+  @media only screen and (min-width: 320px) {
+    max-width: 50px;
+  }
+  @media only screen and (min-width: 375px) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px;
+  }
+  @media only screen and (min-width: 425px) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+  }
+  @media only screen and (min-width: 768px) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 493px;
+  }
+  @media only screen and (min-width: 1024px) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 800px;
+  }
+  @media only screen and (min-width: 1440px) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 1000px;
+  }
+}
+
+/* cart badge */
+
+.cart-badge {
+  font-size: 12px;
+}
+.cart-badge:hover {
+  background: rgba(255, 101, 132, 1);
+}
+
+.card-content {
+  @media only screen and (min-width: 1024px) {
+    min-height: 450px;
+  }
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.disabled:hover {
+  cursor: default;
+}
+
+.jumbotron {
+  width: 30wh;
+  height: 25vh;
+  color: #fff;
+  background: rgb(39, 38, 55);
+  background: linear-gradient(
+    180deg,
+    rgba(39, 38, 55, 1) 0%,
+    rgba(255, 101, 132, 1) 40%
+  );
+  background-size: 400% 400%;
+  @media only screen and (max-width: 600px) {
+    height: 30vh;
+  }
+}
