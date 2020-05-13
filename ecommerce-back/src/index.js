@@ -7,12 +7,12 @@ const cors = require('cors')
 const expressValidator = require('express-validator')
 require('dotenv').config()
 // import routes
-const authRoutes = require('./routes/auth')
-const userRoutes = require('./routes/user')
-const categoryRoutes = require('./routes/category')
-const productRoutes = require('./routes/product')
-const braintreeRoutes = require('./routes/braintree')
-const orderRoutes = require('./routes/order')
+const authRoutes = require('./app/routes/auth')
+const userRoutes = require('./app/routes/user')
+const categoryRoutes = require('./app/routes/category')
+const productRoutes = require('./app/routes/product')
+const braintreeRoutes = require('./app/routes/braintree')
+const orderRoutes = require('./app/routes/order')
 
 // app
 const app = express()
@@ -34,7 +34,7 @@ app.use(bodyparser.json())
 app.use(cookieParser())
 app.use(expressValidator())
 app.use(cors())
-// routes middleware
+// routes
 app.use('/api/v1/', authRoutes)
 app.use('/api/v1/', userRoutes)
 app.use('/api/v1/', categoryRoutes)
