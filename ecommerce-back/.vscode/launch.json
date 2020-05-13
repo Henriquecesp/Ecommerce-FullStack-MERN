@@ -1,0 +1,14 @@
+{
+  "version": "0.3.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "attach",
+      "protocol": "inspector",
+      "restart": true,
+      "name": "Debug",
+      "skipFiles": ["<node_internals>/**"],
+      "outFiles": ["${workspaceFolder}/**/*.ts"]
+    }
+  ]
+}
