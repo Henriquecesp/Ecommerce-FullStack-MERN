@@ -3,7 +3,7 @@ import Menu from "../menu/Menu";
 import "../../styles.scss";
 
 const Layout = ({ className, children, jumbotron, title, description }) => (
-  <div>
+  <div style={{ minHeight: "100vh" }}>
     <Menu />
     {jumbotron ? (
       <div className="jumbotron jumbotron-fluid">
@@ -19,7 +19,7 @@ const Layout = ({ className, children, jumbotron, title, description }) => (
     ) : (
       <br />
     )}
-    <div className={className ? className : "container col-md-8 offset-md-2"}>
+    <div className={className ? className : "container col-10 col-xl-8"}>
       {children}
     </div>
   </div>

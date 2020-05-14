@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { getCategories } from "../admin/apiAdmin";
 import { list } from "./apiCore";
 import Card from "./Card";
+import { errorToast } from "../../helpers/toast";
+import { toast } from "react-toastify";
 
 const SearchBar = () => {
   const [data, setData] = useState({
@@ -11,12 +13,32 @@ const SearchBar = () => {
     results: [],
     searched: false,
   });
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    if (error) {
+      toast.error(error, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+    console.log("error");
+    setError("");
+  }, [error]);
 
   const loadCategories = () => {
     getCategories().then((data) => {
-      if (data.error) {
-        console.log(data.error);
+      console.log(data);
+
+      if (data === undefined) {
+        setError(true);
       } else {
+        setError(false);
         setData({ ...data, categories: data });
       }
     });
@@ -114,6 +136,7 @@ const SearchBar = () => {
 
   return (
     <div className="row">
+      {errorToast()}
       <div className="container b-3">{searchForm()}</div>
       <div className="container-fluid mb-3">{searchedProducts(results)}</div>
     </div>

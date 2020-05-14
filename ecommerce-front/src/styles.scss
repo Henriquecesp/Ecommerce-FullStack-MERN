@@ -1,3 +1,16 @@
+$primary-color: #63b446;
+$secundary-color: #001e44;
+$white-color: #ffff;
+$black-color: #000;
+$orange-color: #ec8337;
+$footer-color: #ffff;
+$linear-blue: linear-gradient(
+  0deg,
+  rgba(0, 51, 67, 1) 0%,
+  rgba(0, 30, 68, 1) 60%
+);
+$linear-grey: linear-gradient(#c9c9c9 0%, #e9e9e9 52.3%, #c9c9c9 100%);
+
 .product-img {
   min-height: 200px;
   img {
@@ -71,7 +84,7 @@
   font-size: 12px;
 }
 .cart-badge:hover {
-  background: rgba(255, 101, 132, 1);
+  background: #003333;
 }
 
 .card-content {
@@ -92,14 +105,83 @@
   width: 30wh;
   height: 25vh;
   color: #fff;
-  background: rgb(39, 38, 55);
-  background: linear-gradient(
-    180deg,
-    rgba(39, 38, 55, 1) 0%,
-    rgba(255, 101, 132, 1) 40%
-  );
+  background: $secundary-color;
+  background: $linear-blue;
   background-size: 400% 400%;
   @media only screen and (max-width: 600px) {
     height: 30vh;
+  }
+}
+.item-wrapper {
+  color: white;
+  img {
+    max-height: 250px;
+  }
+  .card {
+    background: $linear-blue;
+    transition: all 0.5s linear;
+    border: 1px solid #cac9d1;
+  }
+  .card-content {
+    height: 320px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    @media (min-width: 1024px) {
+      height: 535px;
+    }
+  }
+}
+.footer {
+  position: relative;
+  bottom: 0 !important;
+  background: $linear-blue;
+  i:hover {
+    display: inline;
+    background: $secundary-color;
+  }
+}
+.footer-line {
+  display: block;
+  overflow: hidden;
+  border-style: inset;
+  border-width: 1px;
+  opacity: 0.1;
+  width: 100%;
+}
+
+/**
+/ CSS COLOR BOOTSTRAP
+*/
+
+/*! `Custom` Bootstrap 4 theme */
+
+$enable-grid-classes: false;
+$primary: #66b34d;
+$secondary: #868e96;
+$success: #66b34d;
+$danger: #a71d2b;
+$info: #17a2b8;
+$warning: #66b34d;
+$light: #f8f9fa;
+$dark: #001e44;
+@import "bootstrap";
+
+// Add SASS theme customizations here..
+html {
+  font-size: 0.8rem;
+}
+@include media-breakpoint-up(sm) {
+  html {
+    font-size: 0.9rem;
+  }
+}
+@include media-breakpoint-up(md) {
+  html {
+    font-size: 0.9rem;
+  }
+}
+@include media-breakpoint-up(lg) {
+  html {
+    font-size: 1rem;
   }
 }

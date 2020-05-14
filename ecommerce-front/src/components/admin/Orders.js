@@ -38,7 +38,7 @@ const Orders = () => {
   const showOrdersLength = () => {
     if (orders.length > 0) {
       return (
-        <h4 className="display-4" style={{ color: "rgba(255, 101, 132, 1)" }}>
+        <h4 className="display-4" style={{ color: "#001e44" }}>
           Total orders: {orders.length}
         </h4>
       );
@@ -68,7 +68,7 @@ const Orders = () => {
 
   const showStatus = (o) => (
     <div className="form-group">
-      <h3 className="mark mb-2">{o.status}</h3>
+      <h3 className="text-primary mb-2">{o.status}</h3>
       <select
         className="form-control"
         onChange={(e) => handleStatusChange(e, o._id)}
@@ -97,7 +97,7 @@ const Orders = () => {
             key={orderIndex}
             style={{
               padding: "15px",
-              border: "2px solid rgba(255, 101, 132, 1)",
+              border: "2px solid #001e44",
             }}
           >
             <span>

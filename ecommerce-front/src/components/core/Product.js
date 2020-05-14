@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import Layout from "./Layout";
 import { read, listRelated } from "./apiCore";
 import Card from "./Card";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
+import { errorToast } from "../../helpers/toast";
 
 const Product = (props) => {
   const [product, setProduct] = useState({});
@@ -26,20 +27,6 @@ const Product = (props) => {
       }
     });
   };
-
-  const errorToast = () => (
-    <ToastContainer
-      position="top-center"
-      autoClose={5000}
-      hideProgressBar={false}
-      newestOnTop={false}
-      closeOnClick
-      rtl={false}
-      pauseOnFocusLoss
-      draggable
-      pauseOnHover
-    />
-  );
 
   useEffect(() => {
     if (error) {

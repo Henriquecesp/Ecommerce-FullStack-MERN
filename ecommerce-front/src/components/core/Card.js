@@ -20,7 +20,7 @@ const Card = ({
       showViewProductButton && (
         <Link to={`/product/${product._id}`} style={{ textDecoration: "none" }}>
           <button
-            className={`btn btn-outline-info mt-2 mb-2 mr-2 ${
+            className={`btn btn-outline-info btn-block mt-2 mb-2 mr-2 ${
               cart ? "btn-block" : ""
             }`}
           >
@@ -45,12 +45,15 @@ const Card = ({
 
   const showAddedToCartButton = (quantity) => {
     return quantity > 0 ? (
-      <button onClick={addToCart} className="btn btn-success mt-2 mb-2">
+      <button
+        onClick={addToCart}
+        className="btn btn-success btn-block mt-2 mb-2"
+      >
         Add to Cart
       </button>
     ) : (
       // <span className="btn btn-dark mt-2 mb-2 disabled">Add to Cart</span>
-      <button disabled className="btn btn-danger disabled">
+      <button disabled className="btn btn-block btn-danger disabled">
         Out of Stock
       </button>
     );
@@ -65,8 +68,8 @@ const Card = ({
 
   const multiProducts = () => {
     return (
-      <div className="col-12 col-sm-6 col-lg-4 mb-3">
-        <div className="card h-100">
+      <div className="item-wrapper col-12 mx-auto col-sm-6 col-lg-4 mb-3">
+        <div className="card">
           <div className="card-body">
             <div className="card-content">
               <Link to={`/product/${product._id}`}>
@@ -76,10 +79,10 @@ const Card = ({
               <p className="lead mt-2">
                 {product.description.substring(0, 100)}...
               </p>
-              <h4>R$ {product.price}</h4>
             </div>
             <hr />
             <p className="h6">
+              <h4>R$ {product.price}</h4>
               Category: {product.category && product.category.name}
             </p>
             <p>Added on {moment(product.createdAt).fromNow()}</p>

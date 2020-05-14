@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 const User = require('../models/userSchema')
 const braintree = require('braintree')
 require('dotenv').config()
@@ -23,6 +24,7 @@ exports.processPayment = (req, res) => {
   let nonceFromTheClient = req.body.paymentMethodNonce
   let amountFromTheClient = req.body.amount
   // charge
+  // eslint-disable-next-line no-unused-vars
   let newTransaction = gateway.transaction.sale(
     {
       amount: amountFromTheClient,

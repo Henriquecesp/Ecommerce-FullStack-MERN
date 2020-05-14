@@ -3,6 +3,9 @@ import Layout from "./Layout";
 import { getProducts } from "./apiCore";
 import Card from "./Card";
 import SearchBar from "./Search";
+import { errorToast } from "../../helpers/toast";
+import { toast } from "react-toastify";
+import Title from "./Title";
 
 const Home = () => {
   const [productsBySell, setProductsBySell] = useState([]);
@@ -11,7 +14,7 @@ const Home = () => {
 
   const loadProductsBySell = () => {
     getProducts("sold").then((data) => {
-      if (data.error) {
+      if (data === undefined) {
         setError(error);
       } else {
         setProductsBySell(data);
@@ -21,7 +24,7 @@ const Home = () => {
 
   const loadProductsByArrival = () => {
     getProducts("createdAt").then((data) => {
-      if (data.error) {
+      if (data === undefined) {
         setError(error);
       } else {
         setProductsByArrival(data);
@@ -35,21 +38,38 @@ const Home = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    if (error) {
+      toast.error(error, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+    console.log("error");
+    setError("");
+  }, [error]);
+
   return (
     <Layout
       jumbotron
       title="Home"
       description="Ecommerce App"
-      className="container-fluid"
+      // className="container-fluid"
     >
+      {errorToast()}
       <SearchBar />
-      <h2 className="mb-4">New Arrivals</h2>
+      <Title name="New" title="Arrivals" />
       <div className="row">
         {productsByArrival.map((product, i) => (
           <Card key={i} product={product} />
         ))}
       </div>
-      <h2 className="mb-4">Best Sellers</h2>
+      <Title name="Best" title="Sellers" />
       <div className="row">
         {productsBySell.map((product, i) => (
           <Card key={i} product={product} />

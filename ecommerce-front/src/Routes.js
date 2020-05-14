@@ -17,6 +17,7 @@ import UpdateProfile from "./components/user/Profile";
 import UserProfile from "./components/user/UserProfile";
 import ManageProducts from "./components/admin/ManageProducts";
 import UpdateProduct from "./components/admin/UpdateProduct";
+import FooterComponent from "./components/menu/footer";
 
 const Routes = () => {
   return (
@@ -50,6 +51,7 @@ const Routes = () => {
         />
         <Route path="/product/:productId" exact component={Product} />
       </Switch>
+      <FooterComponent />
     </BrowserRouter>
   );
 };

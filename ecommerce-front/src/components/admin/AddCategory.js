@@ -61,7 +61,7 @@ const AddCategory = () => {
   const showSuccess = () => {
     if (success) {
       return (
-        <div className="alert alert-success" role="alert">
+        <div className="alert alert-primary" role="alert">
           Category {name} created!
         </div>
       );

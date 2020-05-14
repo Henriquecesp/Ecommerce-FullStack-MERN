@@ -58,7 +58,7 @@ const Checkout = ({ products, setRun = (f) => f, run = undefined }) => {
 
   const showSuccces = (success) => (
     <div
-      className="alert alert-success"
+      className="alert alert-primary"
       style={{ display: success ? "" : "none" }}
     >
       Thanks! Your payment was successful!

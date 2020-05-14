@@ -6,7 +6,7 @@ import { itemTotal } from "../cart/cartHelpers";
 const isActive = (history, path) => {
   if (history.location.pathname === path) {
     return {
-      borderBottom: "2px solid #AB4C66",
+      borderBottom: "2px solid #63b446",
       color: "#fff",
       padding: "20px",
     };
@@ -43,7 +43,7 @@ const Menu = ({ history }) => {
     <>
       <nav
         className="navbar navbar-expand-lg navbar-dark"
-        style={{ background: "#272637" }}
+        style={{ background: "#001e44" }}
       >
         <button
           className="navbar-toggler"
@@ -82,8 +82,10 @@ const Menu = ({ history }) => {
               >
                 <i className="fa fa-shopping-cart mr-2"></i>Cart{" "}
                 <sup>
-                  <span className="badge badge-pill badge-success cart-badge">
-                    {itemTotal()}
+                  <span className="badge badge-pill badge-warning cart-badge">
+                    <span style={{ fontSize: "12px", color: "white" }}>
+                      <strong>{itemTotal()}</strong>
+                    </span>
                   </span>
                 </sup>
               </Link>

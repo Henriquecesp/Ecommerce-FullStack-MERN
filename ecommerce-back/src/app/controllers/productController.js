@@ -7,7 +7,7 @@ const { errorHandler } = require('../helpers/dbErrorHandler')
 exports.productById = (request, response, next, id) => {
   Product.findById(id).exec((err, product) => {
     if (err || !product) {
-      response.satus(400).json({
+      response.status(400).json({
         error: 'Product not found',
       })
     }
@@ -26,7 +26,7 @@ exports.create = (request, response) => {
   form.keepExtensions = true
   form.parse(request, (err, fields, files) => {
     if (err) {
-      response.satus(400).json({
+      response.status(400).json({
         error: 'Image could not be uploaded',
       })
     }
@@ -102,7 +102,7 @@ exports.update = (request, response) => {
   form.keepExtensions = true
   form.parse(request, (err, fields, files) => {
     if (err) {
-      response.satus(400).json({
+      response.status(400).json({
         error: 'Image could not be uploaded',
       })
     }
@@ -303,7 +303,7 @@ exports.decreaseQuantity = (req, res, next) => {
     }
   })
 
-  Product.bulkWrite(bulkOps, {}, (error, products) => {
+  Product.bulkWrite(bulkOps, {}, (error) => {
     if (error) {
       return res.status(400).json({
         error: 'Could not update product',
